@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8"> 
+    <link rel="stylesheet" href="{{url_for('static',filename='css/MERP.css')}}">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+	<title>MERP</title>
+</head>
+<body>
+<nav class="navbar navbar-light bg-light justify-content-between">
+  <a href="MERP.html" class="navbar-brand">MERP
+  <i class="fa fa-info-circle fa-2x" aria-hidden="true"></i> </a>
+
+  <form class="form-inline">
+    <p class="firstp"> MULTIMEDIA AND ENTERTAINMENT REVIEW PORTAL </p>
+
+    {% if session.username %}
+<a href="{{ url_for('logout') }}" class="btn btn-danger btn-md active" role="button" aria-pressed="true">Log out</a>
+&nbsp;&nbsp;&nbsp;
+{% else %}
+<a href="{{url_for('login')}}" class="btn btn-primary btn-md active" role="button" aria-pressed="true">Log in</a>
+&nbsp;&nbsp;&nbsp;
+<a href="{{url_for('register')}}" class="btn btn-info btn-md active" role="button" aria-pressed="true">Sign Up</a>
+&nbsp;&nbsp;&nbsp;
+{% endif %}
+</form>
+
+</nav>
+
+<img src="https://i0.wp.com/www.smartprix.com/bytes/wp-content/uploads/2018/02/marvel-2.jpg?fit=1200%2C630&ssl=1" class="bboy">
+
+<form method="post" id="search" action="/search">
+  <div class="wrap">
+     <div class="search">
+        <input name=name type="text" class="searchTerm" placeholder="Search for Movie/Tvshow/Anime or anything">
+        <button type="submit" class="searchButton">
+  <i class="fa fa-search" aria-hidden="true"></i>
+       </button>
+     </div>
+  </div>
+    </form>
+
+<div class="footer">
+  <p></p>
+  <br>
+</div>
+
+</body>
+</html>
+
+

@@ -1,0 +1,97 @@
+<html>
+    <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    .push {
+        margin-left: 1250px;
+    }
+
+.inside1 {
+    color:steelblue;
+    font-family: Georgia;
+} 
+
+.line {
+    border:0.25px solid black;
+    width:80%;
+}
+
+h2 {
+     font-family:Georgia,serif;
+    color:#4E443C;
+    font-variant: small-caps; text-transform: none; font-weight: 100; margin-bottom: 0;
+}
+body {
+        background-color: #f2f2f2;
+}
+.complete {
+    padding-left:100px;
+        padding-right:10px;
+    padding-top:10px;
+    padding-bottom:10px;
+}
+
+.firstp {
+text-align:center;
+    font-family: Goudy Old Style;
+  font-size: 25px;
+  font-weight: bold;
+  color:white;
+  padding-top:10px;
+}
+
+</style>
+       </head>
+        <body>
+
+    <nav class="navbar navbar-inverse bg-success justify-content-between">
+  <a href="MERP.html" class="navbar-brand">MERP
+  <i class="fa fa-info-circle fa-2x" aria-hidden="true"></i> </a>
+  <form class="form-inline">
+    <p class="firstp"> MULTIMEDIA AND ENTERTAINMENT REVIEW PORTAL </p>
+</form>
+</nav>
+</div>
+<a href="{{ url_for('basicinfo') }}" class="btn btn-primary btn-md active push" role="button" aria-pressed="true">Basic Info</a>
+&nbsp;&nbsp;&nbsp;
+<a href="{{ url_for('userreviews') }}" class="btn btn-info btn-md active" role="button" aria-pressed="true">User Reviews</a>
+&nbsp;&nbsp;&nbsp;
+
+    <div class="complete">
+
+
+           <h2>Parental guide</h2>
+<br>
+<div class="inside1">
+            {% for dict_item in data2['parentalguide'] %}
+            {% for key, value in dict_item.items() %}
+            {% if key == "items" %}
+            {% for item in value %}
+            {% for key1, value1 in item.items() %}
+                <h3> {{key1}} : {{value1}}</h3>
+                    {% endfor %}
+                    {% endfor %}
+                {% endif %}
+
+            {% if key == "severityVotes" %}
+            {% for key5, value5 in value.items() %}
+                <h3> {{key5}} : {{value5}}</h3>
+                    {% endfor %}
+                    {% endif %}
+            
+                {% else %}
+                <h3> {{key}} : {{value}}</h3>
+                    {% endfor %}
+                    {% endfor %}
+
+    <br>
+    <br>
+    <div class="line">
+</div>
+
+</div>
+
+        </body>
+    </head>
+</html>
